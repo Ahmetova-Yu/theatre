@@ -1,2 +1,7 @@
-class Actor (var name :String, var surname :String, var gender :Gender, var height :Int) {
+class Actor (
+    name :String,
+    surname :String,
+    gender :Gender,
+    var height :Int
+   ) : Person(name, surname, gender) {
 }
