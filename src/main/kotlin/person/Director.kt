@@ -1,7 +1,9 @@
+package person
+
 class Director (
     name :String,
     surname :String,
     gender :Gender,
-    var numberOfShows :Int
+    val numberOfShows :Int
    ) : Person(name, surname, gender) {
 }

@@ -1,7 +1,9 @@
+package person
+
 class Actor (
     name :String,
     surname :String,
     gender :Gender,
-    var height :Int
+    val height :Int
    ) : Person(name, surname, gender) {
 }
