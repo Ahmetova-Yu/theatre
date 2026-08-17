@@ -8,7 +8,7 @@ class Ballet (
     title : String,
     duration : Int,
     director : Director,
-    listOfActors : List<Actor>,
+    listOfActors : MutableList<Actor>,
     musicAuthor : Person,
     librettoText : String,
     val choreographer : Person

@@ -8,9 +8,11 @@ open class MusicalShow (
     title : String,
     duration : Int,
     director : Director,
-    listOfActors : List<Actor>,
+    listOfActors : MutableList<Actor>,
     val musicAuthor : Person,
-    val librettoText : String
+    val librettoText : String) : Show (title, duration, director, listOfActors) {
 
-    ) : Show (title, duration, director, listOfActors) {
+    fun printLibrettoText() {
+        print("Текст либретто: $librettoText")
+    }
 }

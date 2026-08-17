@@ -7,7 +7,7 @@ import person.Person
 class Opera (title : String,
              duration : Int,
              director : Director,
-             listOfActors : List<Actor>,
+             listOfActors : MutableList<Actor>,
              musicAuthor : Person,
              librettoText : String,
              val choirSize : Int
