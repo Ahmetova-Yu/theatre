@@ -12,4 +12,8 @@ class Opera (title : String,
              librettoText : String,
              val choirSize : Int
 ) : MusicalShow (title, duration, director, listOfActors, musicAuthor, librettoText) {
+
+    override fun toString(): String {
+        return super.toString() + ", Размер хора: $choirSize"
+    }
 }

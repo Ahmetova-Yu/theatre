@@ -1,13 +1,9 @@
-import person.Actor
-import person.Director
-import person.Gender
-import person.Person
-import show.Ballet
-import show.Opera
-import show.Show
+import person.*
+import show.*
 
 fun main() {
     println("Создание актеров, режиссеров и др персон")
+
     val actor1 = Actor("Мария", "Васильева", Gender.FEMALE, 168)
     val actor2 = Actor("Денис", "Леонов", Gender.MALE, 187)
     val actor3 = Actor("Анастасия", "Потапова", Gender.FEMALE, 170)
@@ -21,26 +17,29 @@ fun main() {
     val musician = Person("Ольга", "Владимирова", Gender.FEMALE)
 
     println("\nСоздание спектаклей")
-    val showActors = mutableListOf(actor2)
-    val show = Show("Обычный спектакль!", 120, director2, showActors)
 
-    val operaActors = mutableListOf(actor3, actor5)
+    val show = Show(
+        "Обычный спектакль!",
+        120,
+        director2,
+        mutableListOf(actor2)
+    )
+
     val opera = Opera(
         title = "Опера!",
         duration = 80,
         director = director2,
-        listOfActors = operaActors,
+        listOfActors = mutableListOf(actor3, actor5),
         musicAuthor = musician,
         librettoText = "Композитор, теряющий слух, в отчаянии пишет симфонию, находя вдохновение в любви",
         choirSize = 4
     )
 
-    val balletActors = mutableListOf(actor2, actor1)
     val ballet = Ballet(
         title = "Балет",
         duration = 140,
         director = director1,
-        listOfActors = balletActors,
+        listOfActors = mutableListOf(actor2, actor1),
         musicAuthor = musician,
         librettoText = "Порыв ветра уносит шарф балерины к скрипачу. Их взгляды встречаются, и рождается танец на мосту под дождем",
         choreographer = dancer
@@ -48,9 +47,9 @@ fun main() {
 
     println("\n" + "-".repeat(50))
     println("Добавление актеров в спектакли:")
-    show.addNewActor(actor1)   // Добавляем
-    show.addNewActor(actor1)   // Дубликат (не добавится)
-    ballet.addNewActor(actor3) // Добавляем
+    show.addNewActor(actor1)
+    show.addNewActor(actor1) // дубликат
+    ballet.addNewActor(actor3)
     println("-".repeat(50))
 
     println("Вывод информации об актерах:")
@@ -71,7 +70,7 @@ fun main() {
 
     println()
     print("Либретто '${opera.title}': ")
-    opera.printLibrettoText()
+    opera.printLibretto()
     print("Либретто '${ballet.title}': ")
-    ballet.printLibrettoText()
+    ballet.printLibretto()
 }
